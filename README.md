@@ -124,12 +124,14 @@ $$\color{Greenyellow} y=y_1+\displaystyle\sum\limits_{n=1}^{\infty}a_ny_2+\sum\l
 $$\color{Greenyellow} \dfrac{dy}{dx}=\dfrac{dy_1}{dx}+\displaystyle\sum\limits_{n=1}^{\infty}a_n\dfrac{dy_2}{dx}+\sum\limits_{n=1}^{\infty}b_n\dfrac{dy_3}{dx}=\dfrac{1}{EI}\left(-\dfrac{a_0L^3}{48}+\dfrac{a_0Lx^2}{8}-\dfrac{a_0x^3}{12}\right)+\dfrac{1}{EI}\left(\dfrac{L}{n\pi}\right)^3\displaystyle\sum\limits_{n=1}^{\infty}\left( a_n\sin\dfrac{n\pi x}{L}-b_n\cos\dfrac{n\pi x}{L}\right)+\dfrac{1}{EI}\displaystyle\sum\limits_{n=1}^{\infty}a_n\left\lbrace\dfrac{L^3(\cos n\pi-1)}{(n\pi)^4}+\dfrac{L^3(2+\cos n\pi)}{6(n\pi)^2}-\dfrac{L^2x}{(n\pi)^2}+\dfrac{L(1-\cos n\pi)x^2}{2(n\pi)^2} \right\rbrace\ (\mathrm{clockwise})$$
 
 ---
-*Example:* Consider a prismatic simply supported beam with length equal to $6\ \mathrm{m}$, and flexural rigidity equal to $11250\ \mathrm{kN}\text{-}\mathrm{m}^2$. The beam is being subjected to the following loadings along its span from left to right, as shown in the top-left portion of Figure 5.
-1. A trapezoidal load with linearly varying intensity starting from $75\ \mathrm{kN/m}$ to $25\ \mathrm{kN/m}$. 
-2. A trapezoidal load with linearly varying intensity starting from $10\ \mathrm{kN/m}$ to $50\ \mathrm{kN/m}$.
-3. A trapezoidal load with linearly varying intensity starting from $40\ \mathrm{kN/m}$ to $0$.
+<p align="justify"> *Example:* Consider a prismatic simply supported beam with the prescribed loading as shown in Figure 5. </p>
 
-A simple computer script (developed using MATLAB) is provided below to find the approximate Fourier series expansion for the given loading acting at the example beam. Also, the script can be used to generate various responses (i.e., bending moment diagram, shear force diagram and deformation profile) of the beam using the theory discussed above. The variations of the responses with respect to the length of the beam are shown in Figure 6. It is assumed that the beam behaves linearly for the prescribed loadings. The inputs of the computer script can be modified accordingly to use it for other simply supported beams due to any general loading.
+  <p align="center">
+    <img align="center" src="beam_example.png" alt="drawing" width="800"/>
+  </p>
+  <p align="center"> Figure 5: Necessary details for an example simply supported beam </p>
+
+<p align="justify"> A simple computer script (developed using MATLAB) is provided below to find the approximate Fourier series expansion for the given loading acting at the example beam. Also, the script can be used to generate various responses (i.e., bending moment diagram, shear force diagram and deformation profile) of the beam using the theory discussed above. The variations of the responses with respect to the length of the beam are shown in Figure 6. It is assumed that the beam behaves linearly for the prescribed loadings. The inputs of the computer script can be modified accordingly to use it for other simply supported beams due to any general loading. </p>
 
 ```MATLAB
 clear all; clc; warning ('off','all');
@@ -304,6 +306,6 @@ title('Deformed Shape of the Beam');
   <p align="center">
     <img align="center" src="ssb_example.png" alt="drawing" width="1200"/>
   </p>
-  <p align="center"> Figure 5: Loading details for a simply supported beam and the corresponding responses </p>
+  <p align="center"> Figure 6: Loading details for a simply supported beam and the corresponding responses </p>
   
 ## **Theory of plates (double series solution by Navier's method):** 
