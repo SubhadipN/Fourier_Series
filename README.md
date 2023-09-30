@@ -10,6 +10,6 @@
   <p align="center">
     <img align="center" src="ssb_general_load.png" alt="drawing" width="300"/>
   </p>
-  <p align="center">Material Bread</p>
+  <p align="center"> Figure 1: A simply supported beam subjected to any general loading </p>
 
 2. **Theory of plates (double series solution by Navier's method):** 
