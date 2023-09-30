@@ -131,7 +131,7 @@ $$\color{Greenyellow} \dfrac{dy}{dx}=\dfrac{dy_1}{dx}+\displaystyle\sum\limits_{
   </p>
   <p align="center"> Figure 5: Necessary details for an example simply supported beam </p>
 
-<p align="justify"> A simple computer script (developed using MATLAB) is provided below to find the approximate Fourier series expansion for the given loading acting at the example beam. Also, the script can be used to generate various responses (i.e., bending moment diagram, shear force diagram and deformation profile) of the beam using the theory discussed above. The variations of the responses with respect to the length of the beam are shown in Figure 6. It is assumed that the beam behaves linearly for the prescribed loadings. The inputs of the computer script can be modified accordingly to use it for other simply supported beams due to any general loading. </p>
+<p align="justify"> A simple computer script (developed using [MATLAB](https://in.mathworks.com/?s_tid=gn_logo)) is provided below to find the approximate Fourier series expansion for the given loading acting at the example beam. Also, the script can be used to generate various responses (i.e., bending moment diagram, shear force diagram and deformation profile) of the beam using the theory discussed above. The variations of the responses with respect to the length of the beam are shown in Figure 6. It is assumed that the beam behaves linearly for the prescribed loadings. The inputs of the computer script can be modified accordingly to use it for other simply supported beams due to any general loading. </p>
 
 ```MATLAB
 %=============================================================================================
@@ -332,7 +332,7 @@ where
    $$\color{Greenyellow} M_y = \dfrac{1}{\pi^2} \sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} p_{mn} \dfrac{\left[ \nu (m/a)^2+(n/b)^2 \right]}{\left[ (m/a)^2+(n/b)^2 \right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
 </p>
 
-*Example:* <p align="justify"> A square plate of sides $a = 2\ \mathrm{m}$ and $b = 2\ \mathrm{m}$ is simply supported on all edges and subjected to a uniform pressure $p(x,y)=p_0=1.0\ \mathrm{MPa}$. Thickness of the plate is $50\ \mathrm{mm}$ and material properties are $E=2\times 10^5\ \mathrm{MPa}$, $\nu=0.30$. A simple MATLAB script to determine the deflected shape (see Figure 8) and the bending moment diagrams (see Figure 9) for the plate is provided below. </p>
+*Example:* <p align="justify"> A square plate of sides $a = 2\ \mathrm{m}$ and $b = 2\ \mathrm{m}$ is simply supported on all edges and subjected to a uniform pressure $p(x,y)=p_0=1.0\ \mathrm{MPa}$. Thickness of the plate is $50\ \mathrm{mm}$ and material properties are $E=2\times 10^5\ \mathrm{MPa}$, $\nu=0.30$. A simple [MATLAB](https://in.mathworks.com/?s_tid=gn_logo) script to determine the deflected shape (see Figure 8) and the bending moment diagrams (see Figure 9) for the plate is provided below. </p>
 
 ```Matlab
 %==================================================================================================
