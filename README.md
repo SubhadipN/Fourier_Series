@@ -22,12 +22,12 @@
      <p align="center">
        <img align="center" src="ssb_cos.png" alt="drawing" width="300"/>
      </p>
-     <p align="center"> Figure 2: A simply supported beam subjected to a cosine loading </p>
+     <p align="center"> Figure 3: A simply supported beam subjected to a cosine loading </p>
   
   3. **Analysis of the beam when subjected to a harmonic loading of intensity $w_3(x)=\sin n\pi x/L$ per unit length:**
      <p align="center">
        <img align="center" src="ssb_sin.png" alt="drawing" width="300"/>
      </p>
-     <p align="center"> Figure 2: A simply supported beam subjected to a sine loading </p>
+     <p align="center"> Figure 4: A simply supported beam subjected to a sine loading </p>
 
 ### **Theory of plates (double series solution by Navier's method):** 
