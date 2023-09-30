@@ -332,7 +332,7 @@ where
    $$M_y = \dfrac{1}{\pi^2} \sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} p_{mn} \dfrac{\left[ \nu (m/a)^2+(n/b)^2 \right]}{\left[ (m/a)^2+(n/b)^2 \right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
 </p>
 
-*Example:* <p align="justify"> A square plate of sides $a = 2\ \mathrm{m}$ and $b = 2\ \mathrm{m}$ is simply supported on all edges and subjected to a uniform pressure $p(x,y)=p_0=1.0\ \mathrm{MPa}$. Thickness of the plate is $50\ \mathrm{mm}$ and material properties are $E=2\times 10^5\ \mathrm{MPa}$, $\nu=0.30$. A simple MATLAB script to determine the deflected shape and the bending moment diagrams for the plate is provided below. </p>
+*Example:* <p align="justify"> A square plate of sides $a = 2\ \mathrm{m}$ and $b = 2\ \mathrm{m}$ is simply supported on all edges and subjected to a uniform pressure $p(x,y)=p_0=1.0\ \mathrm{MPa}$. Thickness of the plate is $50\ \mathrm{mm}$ and material properties are $E=2\times 10^5\ \mathrm{MPa}$, $\nu=0.30$. A simple MATLAB script to determine the deflected shape (see Figure 8) and the bending moment diagrams (see Figure 9) for the plate is provided below. </p>
 
 ```Matlab
 %==================================================================================================
@@ -430,3 +430,14 @@ ylabel('y (m)','fontsize',18);
 zlabel('My (kN-m)','fontsize',18);
 %==================================================================================================
 ```
+
+  <p align="center">
+    <img align="center" src="plate_deformation.png" alt="drawing" width="500"/>
+  </p>
+  <p align="center"> Figure 8: Deformed shape of the example simply supported plate subjected to the given pressure </p>
+
+  <p align="center">
+    <img align="center" src="plate_BMDs.png" alt="drawing" width="500"/>
+  </p>
+  <p align="center"> Figure 9: Bending moment diagrams of the example simply supported plate subjected to the given
+pressure </p>
