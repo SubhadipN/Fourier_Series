@@ -326,10 +326,10 @@ where
    $$p_{mn} = \dfrac{4}{ab}\int\limits_0^a \int\limits_0^b p(x,y)\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b} dxdy$$
    $$w_{mn} = \dfrac{1}{\pi^4 D} \dfrac{p_{mn}}{\left[(m/a)^2+(n/b)^2\right]^2}$$
    Therefore, the final expression for the deformation profile can be expressed as
-   $$w(x,y) = \dfrac{1}{\pi^4 D} \sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} \dfrac{p_{mn}}{\left[(m/a)^2+(n/b)^2\right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
+   $$\color{Greenyellow} w(x,y) = \dfrac{1}{\pi^4 D} \sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} \dfrac{p_{mn}}{\left[(m/a)^2+(n/b)^2\right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
    Since, $|\sin \frac{m\pi x}{a}| \leq 1$ and $|\sin \frac{n\pi y}{b}| \leq 1$ for every $x$ and $y$, the series in the the above equation is convergent. Finally, the bending moments of the plate can be expressed as
-   $$M_x = \dfrac{1}{\pi^2}\sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} p_{mn} \dfrac{\left[ (m/a)^2+\nu (n/b)^2 \right]}{\left[ (m/a)^2+(n/b)^2 \right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
-   $$M_y = \dfrac{1}{\pi^2} \sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} p_{mn} \dfrac{\left[ \nu (m/a)^2+(n/b)^2 \right]}{\left[ (m/a)^2+(n/b)^2 \right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
+   $$\color{Greenyellow} M_x = \dfrac{1}{\pi^2}\sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} p_{mn} \dfrac{\left[ (m/a)^2+\nu (n/b)^2 \right]}{\left[ (m/a)^2+(n/b)^2 \right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
+   $$\color{Greenyellow} M_y = \dfrac{1}{\pi^2} \sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} p_{mn} \dfrac{\left[ \nu (m/a)^2+(n/b)^2 \right]}{\left[ (m/a)^2+(n/b)^2 \right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
 </p>
 
 *Example:* <p align="justify"> A square plate of sides $a = 2\ \mathrm{m}$ and $b = 2\ \mathrm{m}$ is simply supported on all edges and subjected to a uniform pressure $p(x,y)=p_0=1.0\ \mathrm{MPa}$. Thickness of the plate is $50\ \mathrm{mm}$ and material properties are $E=2\times 10^5\ \mathrm{MPa}$, $\nu=0.30$. A simple MATLAB script to determine the deflected shape (see Figure 8) and the bending moment diagrams (see Figure 9) for the plate is provided below. </p>
@@ -432,12 +432,12 @@ zlabel('My (kN-m)','fontsize',18);
 ```
 
   <p align="center">
-    <img align="center" src="plate_deformation.png" alt="drawing" width="500"/>
+    <img align="center" src="plate_deformation.png" alt="drawing" width="1500"/>
   </p>
   <p align="center"> Figure 8: Deformed shape of the example simply supported plate subjected to the given pressure </p>
 
   <p align="center">
-    <img align="center" src="plate_BMDs.png" alt="drawing" width="500"/>
+    <img align="center" src="plate_BMDs.png" alt="drawing" width="1500"/>
   </p>
   <p align="center"> Figure 9: Bending moment diagrams of the example simply supported plate subjected to the given
 pressure </p>
