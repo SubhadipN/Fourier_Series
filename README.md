@@ -32,13 +32,13 @@
    **Shear force:**
    $$V_{1x}=\dfrac{dM_{1x}}{dx}=\dfrac{a_0L}{4}-\dfrac{a_0x}{2}\ (\uparrow)$$
 
-   **Deflection and slope profiles:** considering $EI$ as the *flexural rigidity* of the beam,
+   **Deflection and slope profiles:** <p align="justify"> considering $EI$ as the *flexural rigidity* of the beam where $E$ is the elastic modulus of the beam material and $I$ is the second moment of area of the beam,
    $$EI\dfrac{d^2y_1}{dx^2}=M_{1x}=\dfrac{a_0Lx}{4}-\dfrac{a_0x^2}{4}$$
    $$\Rightarrow EI\dfrac{dy_1}{dx}=\dfrac{a_0Lx^2}{8}-\dfrac{a_0x^3}{12}+c_1$$
    $$\Rightarrow EIy_1=\dfrac{a_0Lx^3}{24}-\dfrac{a_0x^4}{48}+c_1x+c_2$$
    Boundary conditions for the beam can be expressed as $y_1(0)=0$ and $y_1(L)=0$, which implies that $c_1=-a_0L^3/48$ and $c_2=0$. Hence, 
    $$y_1=\dfrac{1}{EI}\left(\dfrac{a_0L^3x}{48}-\dfrac{a_0Lx^3}{24}+\dfrac{a_0x^4}{48}\right)\ (\downarrow)$$
-   $$\dfrac{dy_1}{dx}=\dfrac{1}{EI}\left(\dfrac{-a_0L^3}{48}+\dfrac{a_0Lx^2}{8}-\dfrac{a_0x^3}{12}\right)\ (\mathrm{clockwise})$$
+   $$\dfrac{dy_1}{dx}=\dfrac{1}{EI}\left(\dfrac{-a_0L^3}{48}+\dfrac{a_0Lx^2}{8}-\dfrac{a_0x^3}{12}\right)\ (\mathrm{clockwise})$$ </p>
   
 ### 2. Analysis of the beam when subjected to a cosine harmonic loading:
    Consider a beam with a harmonic loading of intensity $w_2(x)=\cos\frac{n\pi x}{L}$ per unit length, as shown in Figure 3.
@@ -312,3 +312,12 @@ title('Deformed Shape of the Beam');
   <p align="center"> Figure 6: Loading details for a simply supported beam and the corresponding responses </p>
   
 ## **Theory of plates (double series solution by Navier's method):** 
+<p align="justify"> Consider a rectangular plate of sides $a$ and $b$, simply supported on all edges and subjected to a uniform load $p(x,y)$ as shown in Figure 7. The plate has its origin in the upper left corner. </p>
+   
+  <p align="center">
+    <img align="center" src="plate.png" alt="drawing" width="300"/>
+  </p>
+  <p align="center"> Figure 7: A simply supported plate </p>
+
+<p align="justify"> For this simply supported plate, the governing differential equation for the deflection $(w)$, based on Kirchhoff's assumption, is $$\frac{\partial^4 w}{\partial x^4}+2\ \frac{\partial^4 w}{\partial x^2 \partial y^2}+\frac{\partial^4 w}{\partial y^4} = \frac{p}{D}$$ where $D$ is the flexural rigidity of the plate and can be further expressed as $$\dfrac{Eh^3}{12(1-\nu^2)},$$ $E$ is the elastic modulus of steel, $h$ is the thickness of the plate, and $\nu$ is Poisson's ratio of steel. 
+   Solution of Eq. \ref{de}, i.e. the expression of the deflected surface $w(x,y)$, and also the expression of the distributed surface load $p(x,y)$, considering all necessary boundary conditions can be found in the form of an infinite double Fourier series as: </p>
