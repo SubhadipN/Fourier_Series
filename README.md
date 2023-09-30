@@ -9,8 +9,8 @@
 
   <!-- ![Figure1](ssb_general_load.png) -->
   <p align="center">
-    <img align="center" src="ssb_general_load.png" alt="drawing" width="300"/>
-     
+      <img align="center" src="ssb_general_load.png" alt="drawing" width="300"/>
+      <figcaption> habijabi </figcaption>
   </p>
 
 2. **Theory of plates (double series solution by Navier's method)**
