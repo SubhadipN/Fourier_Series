@@ -12,4 +12,6 @@
   </p>
   <p align="center"> Figure 1: A simply supported beam subjected to any general loading </p>
 
-2. **Theory of plates (double series solution by Navier's method):** 
+  1. **Analysis of the beam when subjected to a UDL of intensity $w_1(x)=a_0/2$ per unit length:**
+
+### **Theory of plates (double series solution by Navier's method):** 
