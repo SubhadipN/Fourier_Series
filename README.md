@@ -319,5 +319,114 @@ title('Deformed Shape of the Beam');
   </p>
   <p align="center"> Figure 7: A simply supported plate </p>
 
-<p align="justify"> For this simply supported plate, the governing differential equation for the deflection $(w)$, based on Kirchhoff's assumption, is $$\frac{\partial^4 w}{\partial x^4}+2\ \frac{\partial^4 w}{\partial x^2 \partial y^2}+\frac{\partial^4 w}{\partial y^4} = \frac{p}{D}$$ where $D$ is the flexural rigidity of the plate and can be further expressed as $$\dfrac{Eh^3}{12(1-\nu^2)},$$ $E$ is the elastic modulus of steel, $h$ is the thickness of the plate, and $\nu$ is Poisson's ratio of steel. 
-   Solution of Eq. \ref{de}, i.e. the expression of the deflected surface $w(x,y)$, and also the expression of the distributed surface load $p(x,y)$, considering all necessary boundary conditions can be found in the form of an infinite double Fourier series as: </p>
+<p align="justify"> For this simply supported plate, the governing differential equation for the deflection $(w)$, based on Kirchhoff's assumption, is $$\frac{\partial^4 w}{\partial x^4}+2\ \frac{\partial^4 w}{\partial x^2 \partial y^2}+\frac{\partial^4 w}{\partial y^4} = \frac{p}{D}$$ where $D$ is the flexural rigidity of the plate and can be further expressed as $$\dfrac{Eh^3}{12(1-\nu^2)},$$ $E$ is the elastic modulus of steel, $h$ is the thickness of the plate, and $\nu$ is Poisson's ratio of steel. Solution of the governing partial differential equation, i.e. the expression of the deflected surface $w(x,y)$, along with the expression of the distributed surface loading $p(x,y)$ after considering all necessary boundary conditions, can be found in the form of an infinite double Fourier series as 
+   $$w(x,y) = \sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} w_{mn}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
+   $$p(x,y) = \sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} p_{mn}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
+where
+   $$p_{mn} = \dfrac{4}{ab}\int\limits_0^a \int\limits_0^b p(x,y)\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b} dxdy$$
+   $$w_{mn} = \dfrac{1}{\pi^4 D} \dfrac{p_{mn}}{\left[(m/a)^2+(n/b)^2\right]^2}$$
+   Therefore, the final expression for the deformation profile can be expressed as
+   $$w(x,y) = \dfrac{1}{\pi^4 D} \sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} \dfrac{p_{mn}}{\left[(m/a)^2+(n/b)^2\right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
+   Since, $|\sin \frac{m\pi x}{a}| \leq 1$ and $|\sin \frac{n\pi y}{b}| \leq 1$ for every $x$ and $y$, the series in the the above equation is convergent. Finally, the bending moments of the plate can be expressed as
+   $$M_x = \dfrac{1}{\pi^2}\sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} p_{mn} \dfrac{\left[ (m/a)^2+\nu (n/b)^2 \right]}{\left[ (m/a)^2+(n/b)^2 \right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
+   $$M_y = \dfrac{1}{\pi^2} \sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} p_{mn} \dfrac{\left[ \nu (m/a)^2+(n/b)^2 \right]}{\left[ (m/a)^2+(n/b)^2 \right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
+</p>
+
+*Example:* <p align="justify"> A square plate of sides $a = 2\ \mathrm{m}$ and $b = 2\ \mathrm{m}$ is simply supported on all edges and subjected to a uniform pressure $p(x,y)=p_0=1.0\ \mathrm{MPa}$. Thickness of the plate is $50\ \mathrm{mm}$ and material properties are $E=2\times 10^5\ \mathrm{MPa}$, $\nu=0.30$. A simple MATLAB script to determine the deflected shape and the bending moment diagrams for the plate is provided below. </p>
+
+```Matlab
+%==================================================================================================
+% PREPARED BY SUBHADIP NASKAR, RESEARCH SCHOLAR, IIT GUWAHATI
+%==================================================================================================
+clear all; clc; warning('off','all')
+%==================================================================================================
+a = 2; b = 2;	% Dimension of the plate (m) [a: x-direction; b: y-direction] 
+po = -1000;		% Uniform pressure (kN/m^2)
+Es = 2*10^8;	% Elastic modulus of steel (kN/m^2)
+h = 0.05;		% Plate thickness (m)
+nu = 0.30;		% Poisson's ratio
+fn = 10;		% Number of terms in Fourier series:: 
+sx = 0.05; 		% Meshgrid properties (small interval in x direction)
+sy = 0.05;		% Meshgrid properties (small interval in x direction)
+%==================================================================================================
+D = Es*h^3/(12*(1-nu^2));           % Flexural Rigidity of plate
+gx = 1+b/sx; gy = 1+a/sy;           % Grid numbers in x and y direction
+[x,y] = meshgrid(0:sx:a,0:sy:b);
+%==================================================================================================
+% Determination of surface load coefficients (pmn)::
+pmn = zeros(fn);
+for m = 1:fn
+    for n = 1:fn 
+        if (mod(m,2) == 1) && (mod(n,2) == 1) 
+            pmn(m,n) = 16*po/(m*n*pi^2); 
+        end
+    end
+end
+%==================================================================================================
+% Determination of deflection coefficients (wmn)::
+wmn = zeros(fn);
+for m = 1:fn 
+    for n = 1:fn 
+        dnm = (pi^4)*D*((m/a)^2+(n/b)^2)^2; 
+        wmn(m,n) = pmn(m,n)/dnm; 
+    end
+end
+%==================================================================================================
+% Determination of deflected shape (wxy) [Unit: m]::
+wxy = zeros(fn);
+for i = 1:gx
+    for j = 1:gy 
+        s = 0;
+        for m = 1:fn 
+            for n = 1:fn 
+                s = s+wmn(m,n)*sin(m*pi*x(i,j)/a)*sin(n*pi*y(i,j)/b); 
+            end
+        end
+        wxy(i,j) = s;
+    end
+end
+%==================================================================================================
+% Determination of bending moments (Mx, My) [Unit: kN-m]::
+for i = 1:gx
+    for j = 1:gy s1 = 0; s2 = 0;
+        for m = 1:fn
+            for n = 1:fn
+                nmn1 = pmn(m,n)*((m/a)^2+nu*(n/b)^2); 
+                nmn2 = pmn(m,n)*(nu*(m/a)^2+(n/b)^2);   
+                dnm = ((m/a)^2+(n/b)^2)^2;              
+                s1 = s1+(nmn1/dnm)*sin(m*pi*x(i,j)/a)*sin(n*pi*y(i,j)/b);
+                s2 = s2+(nmn2/dnm)*sin(m*pi*x(i,j)/a)*sin(n*pi*y(i,j)/b);
+            end
+        end
+        Mx(i,j) = s1*pi^-2; 
+        My(i,j) = s2*pi^-2;
+    end
+end
+%==================================================================================================
+figure (1)
+surf(x,y,1000*wxy); 
+set(gca,'FontSize',18); 
+colorbar('northoutside','fontsize',18);
+title('Deflected shape of simply supported plate','fontsize',18); 
+xlabel('x (m)','fontsize',18); 
+ylabel('y (m)','fontsize',18); 
+zlabel('Deflection (mm)','fontsize',18);
+figure (2)
+subplot(1,2,1)
+surf(x,y,Mx); 
+set(gca,'FontSize',18); 
+colorbar('northoutside','fontsize',18);
+xlabel('x (m)','fontsize',18);
+ylabel('y (m)','fontsize',18); 
+zlabel('Mx (kN-m)','fontsize',18);
+title('Bending moment diagram of simply supported plate','fontsize',18)
+subplot(1,2,2)
+surf(x,y,My); 
+set(gca,'FontSize',18); 
+colorbar('northoutside','fontsize',18);
+title('Bending moment diagram of simply supported plate','fontsize',18)
+xlabel('x (m)','fontsize',18); 
+ylabel('y (m)','fontsize',18); 
+zlabel('My (kN-m)','fontsize',18);
+%==================================================================================================
+```
