@@ -7,7 +7,7 @@
    $$a_0 = \dfrac{1}{L}\int\limits_0^{2L} w(x)\ dx$$ 
    $$a_n = \dfrac{1}{L}\int\limits_0^{2L} w(x) \cos \dfrac{n\pi x}{L} \ dx$$ 
    $$b_n = \dfrac{1}{L}\int\limits_0^{2L} w(x) \sin \dfrac{n\pi x}{L} \ dx$$ 
-   If the response of the simply supported beam subjected to harmonic loadings, $\sin (n\pi x/L)$ and $\cos (n\pi x/L)$, and a uniformly distributed loading (UDL), $a_0/2$, are known individually, the total response of the beam due to $w(x)$ can be obtained by using the theory of superposition. However, the superposition can only be applied if the beam behaves linearly for the prescribed general loading. Now the reaction forces, deflection and slope profiles of the beam subjected to individual UDL and harmonic loadings are given in the following sections. </p>
+   If the response of the simply supported beam subjected to harmonic loadings, $\sin (n\pi x/L)$ and $\cos (n\pi x/L)$, and a uniformly distributed loading (UDL), $a_0/2$, are known individually, the total response of the beam due to $w(x)$ can be obtained by using the theory of superposition. However, the superposition can only be applied if the beam behaves linearly for the prescribed general loading. Now the vertical reaction forces at two supports, bending moment values, shear force values, deflection and slope profiles of the beam subjected to individual UDL and harmonic loadings are given in the following sections. </p>
    
   <p align="center">
     <img align="center" src="ssb_general_load.png" alt="drawing" width="500"/>
@@ -152,7 +152,7 @@ n = 50;
 ll = -0.001*L:0.001:1.001*L;
 %=============================================================================================
 subplot (2,2,1); 
-box on; hold on; 
+box on; hold on; grid minor;
 xlim([min(ll) max(ll)]);
 if min(LI,[],"all") >= 0
     ylim([-0.10*max(LI,[],"all") 1.25*max(LI,[],"all")]);
@@ -256,7 +256,7 @@ disp = disp/EI;
 %=============================================================================================
 % Plot the bending moment::
 subplot (2,2,2); 
-box on; hold on; grid on; 
+box on; hold on; grid on; grid minor;
 xlim([min(ll) max(ll)]);
 ylim(1.25*[min(bm) max(bm)]);
 frame_h = get(handle(gcf),'JavaFrame'); 
@@ -271,7 +271,7 @@ title('Bending Moment Diagram');
 %--------------------------------------------------------------------------------------------
 % Plot the shear force:
 subplot (2,2,3); 
-box on; hold on; grid on; 
+box on; hold on; grid on; grid minor;
 xlim([min(ll) max(ll)]);
 ylim(1.25*[min(sf) max(sf)]);
 frame_h = get(handle(gcf),'JavaFrame'); 
@@ -288,7 +288,7 @@ title('Shear Force Diagram');
 %--------------------------------------------------------------------------------------------
 % Plot the deformed shape:
 subplot (2,2,4); 
-box on; hold on; grid on; 
+box on; hold on; grid on; grid minor;
 xlim([min(ll) max(ll)]);
 ylim(1.2*[1000*min(disp) 1000*max(disp)]);
 frame_h = get(handle(gcf),'JavaFrame'); 
