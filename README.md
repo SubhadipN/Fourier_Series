@@ -107,8 +107,20 @@
 ### 4. Superposition of reaction forces and responses:
 <p align="justify"> The theory of superposition can be used to get the resultant reaction forces and responses of the simply supported beam due to any general loading $w(x)$. The behaviour of the beam must be within a linear range to make the theory of superposition to be applicable. The linear behaviour of the beam can be controlled by the $EI$ value for a particular prescribed loading $w(x)$. The expressions for the resultant reactions and other responses are given below. </p>
 
-<span style='color: red;'>
 **Total reactions:**
-$$R_A=R_{A1}+\displaystyle\sum\limits_{n=1}^{\infty}a_nR_{A2}+\sum\limits_{n=1}^{\infty}b_nR_{A3}=\dfrac{a_0L}{4}+\sum\limits_{n=1}^{\infty}\dfrac{a_nL(1-\cos n\pi)}{(n\pi)^2}+\sum\limits_{n=1}^{\infty}\dfrac{b_nL}{n\pi}\ (\uparrow)$$
-</span>
+$$\color{Greenyellow} R_A=R_{A1}+\displaystyle\sum\limits_{n=1}^{\infty}a_nR_{A2}+\sum\limits_{n=1}^{\infty}b_nR_{A3}=\dfrac{a_0L}{4}+\sum\limits_{n=1}^{\infty}\dfrac{a_nL(1-\cos n\pi)}{(n\pi)^2}+\sum\limits_{n=1}^{\infty}\dfrac{b_nL}{n\pi}\ (\uparrow)$$
+$$\color{Greenyellow} R_B=R_{B1}+\displaystyle\sum\limits_{n=1}^{\infty}a_nR_{B2}+\sum\limits_{n=1}^{\infty}b_nR_{B3}=\dfrac{a_0L}{4}-\sum\limits_{n=1}^{\infty}\dfrac{a_nL(1-\cos n\pi)}{(n\pi)^2}-\sum\limits_{n=1}^{\infty}\dfrac{b_nL\cos n\pi}{n\pi}\ (\uparrow)$$
+
+**Bending moment:**
+$$\color{Greenyellow} M_x=M_{1x}+\displaystyle\sum\limits_{n=1}^{\infty}a_nM_{2x}+\sum\limits_{n=1}^{\infty}b_nM_{3x}=\dfrac{a_0Lx}{4}-\dfrac{a_0x^2}{4}+\left(\dfrac{L}{n\pi}\right)^2\displaystyle\sum\limits_{n=1}^{\infty}\left\lbrace a_n\left(\cos\dfrac{n\pi x}{L}-1\right)+b_n \sin \dfrac{n\pi x}{L}\right\rbrace+\dfrac{Lx}{(n\pi)^2}\sum\limits_{n=1}^{\infty}a_n(1-\cos n\pi)\ (\mathrm{clockwise})$$
+
+**Shear force:**
+$$\color{Greenyellow} V_x=V_{1x}+\displaystyle\sum\limits_{n=1}^{\infty}a_nV_{2x}+\sum\limits_{n=1}^{\infty}b_nV_{3x} = \dfrac{a_0L}{4}-\dfrac{a_0x}{2}+\dfrac{L}{(n\pi)^2}\displaystyle\sum\limits_{n=1}^{\infty}a_n(1-\cos n\pi)+\dfrac{L}{n\pi}\sum\limits_{n=1}^{\infty}\left(b_n\cos \dfrac{n\pi x}{L}-a_n\sin \dfrac{n\pi x}{L}\right)\ (\uparrow)$$
+
+**Deflection:**
+$$\color{Greenyellow} y=y_1+\displaystyle\sum\limits_{n=1}^{\infty}a_ny_2+\sum\limits_{n=1}^{\infty}b_ny_3=\dfrac{1}{EI}\left(\dfrac{a_0L^3x}{48}-\dfrac{a_0Lx^3}{24}+\dfrac{a_0x^4}{48}\right)+\dfrac{1}{EI}\left(\dfrac{L}{n\pi}\right)^4\displaystyle\sum\limits_{n=1}^{\infty}\left\lbrace a_n\left(\cos \dfrac{n\pi x}{L}-1\right)+b_n\sin\dfrac{n\pi x}{L}\right\rbrace+\dfrac{1}{EI}\displaystyle\sum\limits_{n=1}^{\infty}a_n\left\lbrace\dfrac{L^3(1-\cos n\pi)x}{(n\pi)^4}-\dfrac{L^3(2+\cos n\pi)x}{6(n\pi)^2}+\dfrac{L^2x^2}{2(n\pi)^2}-\dfrac{L(1-\cos n\pi)x^3}{6(n\pi)^2} \right\rbrace\ (\downarrow)$$
+
+**Slope:**
+$$\color{Greenyellow} \dfrac{dy}{dx}=\dfrac{dy_1}{dx}+\displaystyle\sum\limits_{n=1}^{\infty}a_n\dfrac{dy_2}{dx}+\sum\limits_{n=1}^{\infty}b_n\dfrac{dy_3}{dx}=\dfrac{1}{EI}\left(-\dfrac{a_0L^3}{48}+\dfrac{a_0Lx^2}{8}-\dfrac{a_0x^3}{12}\right)+\dfrac{1}{EI}\left(\dfrac{L}{n\pi}\right)^3\displaystyle\sum\limits_{n=1}^{\infty}\left( a_n\sin\dfrac{n\pi x}{L}-b_n\cos\dfrac{n\pi x}{L}\right)+\dfrac{1}{EI}\displaystyle\sum\limits_{n=1}^{\infty}a_n\left\lbrace\dfrac{L^3(\cos n\pi-1)}{(n\pi)^4}+\dfrac{L^3(2+\cos n\pi)}{6(n\pi)^2}-\dfrac{L^2x}{(n\pi)^2}+\dfrac{L(1-\cos n\pi)x^2}{2(n\pi)^2} \right\rbrace\ (\mathrm{clockwise})$$
+
 ## **Theory of plates (double series solution by Navier's method):** 
