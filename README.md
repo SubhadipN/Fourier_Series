@@ -9,7 +9,7 @@
 
   <!-- ![Figure1](ssb_general_load.png) -->
   <p align="center">
-    <img align="center" src="ssb_general_load.png" alt="drawing" width="300"/ caption="This is Jekyll's logo, featuring Dr. Jekyll's serum!">
+    <img align="center" src="ssb_general_load.png" alt="drawing" width="300"/>
      
   </p>
 
