@@ -10,14 +10,14 @@
    If the response of the simply supported beam subjected to harmonic loadings, $\sin (n\pi x/L)$ and $\cos (n\pi x/L)$, and a uniformly distributed loading (UDL), $a_0/2$, are known individually, the total response of the beam due to $w(x)$ can be obtained by using the theory of superposition. However, the superposition can only be applied if the beam behaves linearly for the prescribed general loading. Now the reaction forces, deflection and slope profiles of the beam subjected to individual UDL and harmonic loadings are given in the following sections. </p>
    
   <p align="center">
-    <img align="center" src="ssb_general_load.png" alt="drawing" width="300"/>
+    <img align="center" src="ssb_general_load.png" alt="drawing" width="500"/>
   </p>
   <p align="center"> Figure 1: A simply supported beam subjected to any general loading </p>
 
 ### 1. Analysis of the beam when subjected to a UDL: 
    Consider a beam with a UDL of intensity $w_1(x)=a_0/2$ per unit length, as shown in Figure 2. 
   <p align="center">
-    <img align="center" src="ssb_udl.png" alt="drawing" width="300"/>
+    <img align="center" src="ssb_udl.png" alt="drawing" width="500"/>
   </p>
   <p align="center"> Figure 2: A simply supported beam subjected to a UDL loading </p>
   
@@ -44,7 +44,7 @@
    Consider a beam with a harmonic loading of intensity $w_2(x)=\cos\frac{n\pi x}{L}$ per unit length, as shown in Figure 3.
    
   <p align="center">
-    <img align="center" src="ssb_cos.png" alt="drawing" width="300"/>
+    <img align="center" src="ssb_cos.png" alt="drawing" width="500"/>
   </p>
   <p align="center"> Figure 3: A simply supported beam subjected to a cosine loading </p>
   
@@ -77,7 +77,7 @@
    Consider a beam with a harmonic loading of intensity $w_3(x)=\sin\frac{n\pi x}{L}$ per unit length, as shown in Figure 4.
    
   <p align="center">
-    <img align="center" src="ssb_sin.png" alt="drawing" width="300"/>
+    <img align="center" src="ssb_sin.png" alt="drawing" width="500"/>
   </p>
   <p align="center"> Figure 4: A simply supported beam subjected to a sine loading </p>
   
@@ -107,6 +107,7 @@
 ### 4. Superposition of reaction forces and responses:
 <p align="justify"> The theory of superposition can be used to get the resultant reaction forces and responses of the simply supported beam due to any general loading $w(x)$. The behaviour of the beam must be within a linear range to make the theory of superposition to be applicable. The linear behaviour of the beam can be controlled by the $EI$ value for a particular prescribed loading $w(x)$. The expressions for the resultant reactions and other responses are given below. </p>
 
+\color{Greenyellow}
 **Total reactions:**
 $$\color{Greenyellow} R_A=R_{A1}+\displaystyle\sum\limits_{n=1}^{\infty}a_nR_{A2}+\sum\limits_{n=1}^{\infty}b_nR_{A3}=\dfrac{a_0L}{4}+\sum\limits_{n=1}^{\infty}\dfrac{a_nL(1-\cos n\pi)}{(n\pi)^2}+\sum\limits_{n=1}^{\infty}\dfrac{b_nL}{n\pi}\ (\uparrow)$$
 $$\color{Greenyellow} R_B=R_{B1}+\displaystyle\sum\limits_{n=1}^{\infty}a_nR_{B2}+\sum\limits_{n=1}^{\infty}b_nR_{B3}=\dfrac{a_0L}{4}-\sum\limits_{n=1}^{\infty}\dfrac{a_nL(1-\cos n\pi)}{(n\pi)^2}-\sum\limits_{n=1}^{\infty}\dfrac{b_nL\cos n\pi}{n\pi}\ (\uparrow)$$
@@ -292,5 +293,10 @@ ylabel('Deflection (mm)');
 title('Deformed Shape of the Beam');
 %=============================================================================================
 ```
+
+  <p align="center">
+    <img align="center" src="ssb_example.png" alt="drawing" width="1200"/>
+  </p>
+  <p align="center"> Figure 5: Loading details for a simply supported beam and the corresponding responses </p>
 
 ## **Theory of plates (double series solution by Navier's method):** 
