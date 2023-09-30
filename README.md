@@ -13,7 +13,21 @@
   <p align="center"> Figure 1: A simply supported beam subjected to any general loading </p>
 
   1. **Analysis of the beam when subjected to a UDL of intensity $w_1(x)=a_0/2$ per unit length:**
+     <p align="center">
+       <img align="center" src="ssb_udl.png" alt="drawing" width="300"/>
+     </p>
+     <p align="center"> Figure 2: A simply supported beam subjected to a UDL loading </p>
+  
   2. **Analysis of the beam when subjected to a harmonic loading of intensity $w_2(x)=\cos n\pi x/L$ per unit length:**
+     <p align="center">
+       <img align="center" src="ssb_cos.png" alt="drawing" width="300"/>
+     </p>
+     <p align="center"> Figure 2: A simply supported beam subjected to a cosine loading </p>
+  
   3. **Analysis of the beam when subjected to a harmonic loading of intensity $w_3(x)=\sin n\pi x/L$ per unit length:**
+     <p align="center">
+       <img align="center" src="ssb_sin.png" alt="drawing" width="300"/>
+     </p>
+     <p align="center"> Figure 2: A simply supported beam subjected to a sine loading </p>
 
 ### **Theory of plates (double series solution by Navier's method):** 
