@@ -129,12 +129,7 @@ $$\color{Greenyellow} \dfrac{dy}{dx}=\dfrac{dy_1}{dx}+\displaystyle\sum\limits_{
 2. A trapezoidal load with linearly varying intensity starting from $10\ \mathrm{kN/m}$ to $50\ \mathrm{kN/m}$.
 3. A trapezoidal load with linearly varying intensity starting from $40\ \mathrm{kN/m}$ to $0$.
 
-  <p align="center">
-    <img align="center" src="ssb_example.png" alt="drawing" width="1200"/>
-  </p>
-  <p align="center"> Figure 5: Loading details for a simply supported beam and the corresponding responses </p>
-
-A simple computer script (developed using MATLAB) is provided below to generate various responses (i.e., bending moment diagram, shear force diagram and deformation profile) of the beam using the theory discussed above. It is assumed that the beam behaves linearly for the prescribed loadings. The inputs of the computer script can be modified accordingly to use it for other simply supported beams due to any general loading.
+A simple computer script (developed using MATLAB) is provided below to find the approximate Fourier series expansion for the given loading acting at the example beam. Also, the script can be used to generate various responses (i.e., bending moment diagram, shear force diagram and deformation profile) of the beam using the theory discussed above. The variations of the responses with respect to the length of the beam are shown in Figure 6. It is assumed that the beam behaves linearly for the prescribed loadings. The inputs of the computer script can be modified accordingly to use it for other simply supported beams due to any general loading.
 
 ```MATLAB
 clear all; clc; warning ('off','all');
@@ -306,4 +301,9 @@ title('Deformed Shape of the Beam');
 %=============================================================================================
 ```
 
+  <p align="center">
+    <img align="center" src="ssb_example.png" alt="drawing" width="1200"/>
+  </p>
+  <p align="center"> Figure 5: Loading details for a simply supported beam and the corresponding responses </p>
+  
 ## **Theory of plates (double series solution by Navier's method):** 
