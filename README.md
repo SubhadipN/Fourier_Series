@@ -134,17 +134,20 @@ $$\color{Greenyellow} \dfrac{dy}{dx}=\dfrac{dy_1}{dx}+\displaystyle\sum\limits_{
 <p align="justify"> A simple computer script (developed using MATLAB) is provided below to find the approximate Fourier series expansion for the given loading acting at the example beam. Also, the script can be used to generate various responses (i.e., bending moment diagram, shear force diagram and deformation profile) of the beam using the theory discussed above. The variations of the responses with respect to the length of the beam are shown in Figure 6. It is assumed that the beam behaves linearly for the prescribed loadings. The inputs of the computer script can be modified accordingly to use it for other simply supported beams due to any general loading. </p>
 
 ```MATLAB
+%=============================================================================================
+% Prepared by SUBHADIP NASKAR, RESEARCH SCHOLAR, IIT GUWAHATI
+%=============================================================================================
 clear all; clc; warning ('off','all');
 %=============================================================================================
 % INPUTS::
 % Length of the beam (m)::
-L = 6;       
+L = 5;       
 % Modulus of rigidity of the beam (kN-m^2)::
 EI = 11250;
 % Position of Load Function::
-LP = [0 0.3; 0.4 0.6; 0.7 1.0]*L;  
+LP = [0 0.4; 0.5 1.0]*L;  
 % Intensity of Load Function (kN/m)::
-LI = [75 25; 10 50; 40 0];
+LI = [20 20; 10 40];
 % Number of terms in Fourier series::
 n = 50;                         
 %=============================================================================================
