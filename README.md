@@ -124,37 +124,49 @@ $$\color{Greenyellow} y=y_1+\displaystyle\sum\limits_{n=1}^{\infty}a_ny_2+\sum\l
 $$\color{Greenyellow} \dfrac{dy}{dx}=\dfrac{dy_1}{dx}+\displaystyle\sum\limits_{n=1}^{\infty}a_n\dfrac{dy_2}{dx}+\sum\limits_{n=1}^{\infty}b_n\dfrac{dy_3}{dx}=\dfrac{1}{EI}\left(-\dfrac{a_0L^3}{48}+\dfrac{a_0Lx^2}{8}-\dfrac{a_0x^3}{12}\right)+\dfrac{1}{EI}\left(\dfrac{L}{n\pi}\right)^3\displaystyle\sum\limits_{n=1}^{\infty}\left( a_n\sin\dfrac{n\pi x}{L}-b_n\cos\dfrac{n\pi x}{L}\right)+\dfrac{1}{EI}\displaystyle\sum\limits_{n=1}^{\infty}a_n\left\lbrace\dfrac{L^3(\cos n\pi-1)}{(n\pi)^4}+\dfrac{L^3(2+\cos n\pi)}{6(n\pi)^2}-\dfrac{L^2x}{(n\pi)^2}+\dfrac{L(1-\cos n\pi)x^2}{2(n\pi)^2} \right\rbrace\ (\mathrm{clockwise})$$
 
 ```MATLAB
-%=============================================================================================
 clear all; clc; warning ('off','all');
 %=============================================================================================
 % INPUTS::
 % Length of the beam (m)::
-L = 5;       
+L = 6;       
 % Modulus of rigidity of the beam (kN-m^2)::
 EI = 11250;
 % Position of Load Function::
-LP = [0 0.4; 0.5 1]*L;  
+LP = [0 0.3; 0.4 0.6; 0.7 1.0]*L;  
 % Intensity of Load Function (kN/m)::
-LI = [20 20; 10 40];
+LI = [75 25; 10 50; 40 0];
 % Number of terms in Fourier series::
-n = 500;                           
+n = 50;                         
 %=============================================================================================
 % Discrete the total length of the beam:: 
 ll = -0.001*L:0.001:1.001*L;
 %=============================================================================================
-figure (1); 
-box on; hold on; xlim([min(ll) max(ll)]);
-frame_h = get(handle(gcf),'JavaFrame'); set(frame_h,'Maximized',1);
+subplot (2,2,1); 
+box on; hold on; 
+xlim([min(ll) max(ll)]);
+if min(LI,[],"all") >= 0
+    ylim([-0.10*max(LI,[],"all") 1.25*max(LI,[],"all")]);
+else
+    ylim(1.25*[min(LI,[],"all") max(LI,[],"all")]);
+end
+frame_h = get(handle(gcf),'JavaFrame'); 
+set(frame_h,'Maximized',1);
 plot(ll,zeros(length(ll),1),'b','LineWidth',2); 
-set(gca,'fontsize',32); set(gca,'FontName','Times New Roman');
-xlabel('Length of beam (m)'); ylabel('Loading (kN)');
+set(gca,'fontsize',20); 
+set(gca,'FontName','Times New Roman');
+xlabel('Length of beam (m)'); 
+ylabel('Loading (kN)');
 title('Fourier Series Expansion of the Loading');
 %---------------------------------------------------------------------------------------------
 elem = size(LP); elem = elem(1,1);
 for ii = 1:elem
-    x1 = LP(ii,1); y1 = LI(ii,1); x2 = LP(ii,2); y2 = LI(ii,2);
-    m(ii) = (y2-y1)/(x2-x1); c(ii) = (x2*y1-x1*y2)/(x2-x1);
-    l = linspace(x1,x2,1000); h1 = linspace(0,y1,10); h2 = linspace(0,y2,10);
+    x1 = LP(ii,1); y1 = LI(ii,1); 
+    x2 = LP(ii,2); y2 = LI(ii,2);
+    m(ii) = (y2-y1)/(x2-x1); 
+    c(ii) = (x2*y1-x1*y2)/(x2-x1);
+    l = linspace(x1,x2,1000); 
+    h1 = linspace(0,y1,10); 
+    h2 = linspace(0,y2,10);
     for jj = 1:length(l)
         y(jj) = m(ii)*l(jj)+c(ii);
     end
@@ -168,7 +180,8 @@ area = 0;
 for ii = 1:elem
     area = area+trapz([LP(ii,1) LP(ii,2)],[LI(ii,1) LI(ii,2)]);
 end
-wm = area/L; a0 = wm/2;
+wm = area/L; 
+a0 = wm/2;
 %=============================================================================================
 % Estimation of Fourier Coefficients::
 for ii = 1:n
@@ -177,15 +190,19 @@ for ii = 1:n
         x = linspace(LP(jj,1),LP(jj,2),L*1000);
         for k = 1:length(x)
             if LI(jj,1) == LI(jj,2)
-                y1(k) = LI(jj,1)*cos(ii*pi*x(k)/L); y2(k) = LI(jj,1)*sin(ii*pi*x(k)/L);
+                y1(k) = LI(jj,1)*cos(ii*pi*x(k)/L); 
+                y2(k) = LI(jj,1)*sin(ii*pi*x(k)/L);
             else
                 f = LI(jj,1)+(x(k)-LP(jj,1))*(LI(jj,2)-LI(jj,1))/(LP(jj,2)-LP(jj,1));
-                y1(k) = f*cos(ii*pi*x(k)/L); y2(k) = f*sin(ii*pi*x(k)/L);
+                y1(k) = f*cos(ii*pi*x(k)/L); 
+                y2(k) = f*sin(ii*pi*x(k)/L);
             end
         end
-        area1 = area1+trapz(x,y1); area2 = area2+trapz(x,y2);
+        area1 = area1+trapz(x,y1); 
+        area2 = area2+trapz(x,y2);
     end
-    a(ii) = area1/L; b(ii) = area2/L;
+    a(ii) = area1/L; 
+    b(ii) = area2/L;
 end
 %=============================================================================================
 % Estimation of summation of Harmonic Functions::
@@ -199,67 +216,79 @@ end
 h(2) = plot(ll,wm+wf,'k','LineWidth',2);
 legend(h,'Exact Loading','Fourier Series Expansion','Location','best');
 %=============================================================================================
-% Estimation of bending moment::
+% various responses::
 bm = zeros(length(ll),1);
+sf = zeros(length(ll),1);
+disp = zeros(length(ll),1);
+Ln = L./((1:1:n)*pi);
 for ii = 1:length(ll)
     bm(ii) = 0.5*a0*ll(ii)*(L-ll(ii));
-    for jj = 1:n
-        Ln = L/(jj*pi);0
-        bms = Ln^2*sin(ll(ii)/Ln); 
-        bmc = Ln*ll(ii)*(1-cos(jj*pi))/(jj*pi)+Ln^2*(cos(ll(ii)/Ln)-1);
-        bm(ii) = bm(ii)+a(jj)*bmc+b(jj)*bms;
-    end
-end
-%--------------------------------------------------------------------------------------------
-% Plot the bending moment::
-figure (2); 
-box on; hold on; grid on; xlim([min(ll) max(ll)]);
-frame_h = get(handle(gcf),'JavaFrame'); set(frame_h,'Maximized',1);
-set(gca,'fontsize',32); set(gca,'FontName','Times New Roman');
-plot(ll,zeros(length(ll),1),'b','LineWidth',2); plot(ll,bm,'g','LineWidth',2);
-xlabel('Length of beam (m)'); ylabel('Bending Moment (kNm)'); title('Bending Moment Diagram');
-%=============================================================================================
-% Estimation of shear force::
-sf = zeros(length(ll),1);
-for ii = 1:length(ll)
     sf(ii) = a0*(L/2-ll(ii));
+    disp(ii) = a0*(-L^3*ll(ii)/24+L*ll(ii)^3/12-ll(ii)^4/24);
     for jj = 1:n
-        Ln = L/(jj*pi); 
-        sfs = Ln*cos(ll(ii)/Ln); 
-        sfc = Ln*(1-cos(jj*pi))/(jj*pi)-Ln*sin(ll(ii)/Ln);
+        % bending moment::
+        bms = Ln(jj)^2*sin(ll(ii)/Ln(jj)); 
+        bmc = Ln(jj)*ll(ii)*(1-cos(jj*pi))/(jj*pi)+Ln(jj)^2*(cos(ll(ii)/Ln(jj))-1);
+        bm(ii) = bm(ii)+a(jj)*bmc+b(jj)*bms;
+        % shear force::
+        sfs = Ln(jj)*cos(ll(ii)/Ln(jj)); 
+        sfc = Ln(jj)*(1-cos(jj*pi))/(jj*pi)-Ln(jj)*sin(ll(ii)/Ln(jj));
         sf(ii) = sf(ii)+a(jj)*sfc+b(jj)*sfs;
-    end
-end
-%--------------------------------------------------------------------------------------------
-% Plot the shear force:
-figure (3); 
-box on; hold on; grid on; xlim([min(ll) max(ll)]);
-frame_h = get(handle(gcf),'JavaFrame'); set(frame_h,'Maximized',1);
-set(gca,'fontsize',32); set(gca,'FontName','Times New Roman');
-plot(ll,zeros(length(ll),1),'b','LineWidth',2); plot(ll,sf,'g','LineWidth',2);
-xlabel('Length of beam (m)'); ylabel('Shear Force (kN)'); title('Shear Force Diagram');
-%=============================================================================================
-% Estimation of deflection::
-disp = zeros(length(ll),1);
-for ii = 1:length(ll)
-    disp(ii) = a0*(-L^3*ll(ii)/24+L*ll(ii)^3/12-ll(ii)^4/24)/EI;
-    for jj = 1:n
-        Ln = L/(jj*pi); 
-        disps = -Ln^4*sin(ll(ii)/Ln)/EI;
-        dispc = (Ln^4*(1-cos(ll(ii)/Ln))-Ln^3*(1-cos(jj*pi))*ll(ii)/(jj*pi)+ ...
-            L*Ln^2*(2+cos(jj*pi))*ll(ii)/6-Ln^2*ll(ii)^2/2+ ...
-            Ln*(1-cos(jj*pi))*ll(ii)^3/(6*jj*pi))/EI;
+        % deflection profile::
+        disps = -Ln(jj)^4*sin(ll(ii)/Ln(jj));
+        dispc = Ln(jj)^4*(1-cos(ll(ii)/Ln(jj)))-Ln(jj)^3*(1-cos(jj*pi))*ll(ii)/(jj*pi)+ ...
+            L*Ln(jj)^2*(2+cos(jj*pi))*ll(ii)/6-Ln(jj)^2*ll(ii)^2/2+ ...
+            Ln(jj)*(1-cos(jj*pi))*ll(ii)^3/(6*jj*pi);
         disp(ii) = disp(ii)+a(jj)*dispc+b(jj)*disps;
     end
 end
+disp = disp/EI;
+%=============================================================================================
+% Plot the bending moment::
+subplot (2,2,2); 
+box on; hold on; grid on; 
+xlim([min(ll) max(ll)]);
+ylim(1.25*[min(bm) max(bm)]);
+frame_h = get(handle(gcf),'JavaFrame'); 
+set(frame_h,'Maximized',1);
+set(gca,'fontsize',20); 
+set(gca,'FontName','Times New Roman');
+plot(ll,zeros(length(ll),1),'b','LineWidth',2); 
+plot(ll,bm,'g','LineWidth',2);
+xlabel('Length of beam (m)'); 
+ylabel('Bending Moment (kNm)'); 
+title('Bending Moment Diagram');
+%--------------------------------------------------------------------------------------------
+% Plot the shear force:
+subplot (2,2,3); 
+box on; hold on; grid on; 
+xlim([min(ll) max(ll)]);
+ylim(1.25*[min(sf) max(sf)]);
+frame_h = get(handle(gcf),'JavaFrame'); 
+set(frame_h,'Maximized',1);
+set(gca,'fontsize',20); 
+set(gca,'FontName','Times New Roman');
+plot(ll,zeros(length(ll),1),'b','LineWidth',2); 
+plot(ll,sf,'g','LineWidth',2);
+plot([0,0],[0,sf(1)],'g','LineWidth',2);
+plot([L,L],[0,sf(end)],'g','LineWidth',2);
+xlabel('Length of beam (m)'); 
+ylabel('Shear Force (kN)'); 
+title('Shear Force Diagram');
 %--------------------------------------------------------------------------------------------
 % Plot the deformed shape:
-figure (4); 
-box on; hold on; grid on; xlim([min(ll) max(ll)]);
-frame_h = get(handle(gcf),'JavaFrame'); set(frame_h,'Maximized',1);
-set(gca,'fontsize',32); set(gca,'FontName','Times New Roman');
-plot(ll,zeros(length(ll),1),'b','LineWidth',2); plot(ll,1000*disp,'g','LineWidth',2);
-xlabel('Length of beam (m)'); ylabel('Deflection (mm)');
+subplot (2,2,4); 
+box on; hold on; grid on; 
+xlim([min(ll) max(ll)]);
+ylim(1.2*[1000*min(disp) 1000*max(disp)]);
+frame_h = get(handle(gcf),'JavaFrame'); 
+set(frame_h,'Maximized',1);
+set(gca,'fontsize',20); 
+set(gca,'FontName','Times New Roman');
+plot(ll,zeros(length(ll),1),'b','LineWidth',2); 
+plot(ll,1000*disp,'g','LineWidth',2);
+xlabel('Length of beam (m)'); 
+ylabel('Deflection (mm)');
 title('Deformed Shape of the Beam');
 %=============================================================================================
 ```
