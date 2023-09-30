@@ -13,9 +13,37 @@
   <p align="center"> Figure 1: A simply supported beam subjected to any general loading </p>
 
   1. **Analysis of the beam when subjected to a UDL of intensity $w_1(x)=a_0/2$ per unit length:**
+   
+  <p align="center">
+    <img align="center" src="ssb_udl.png" alt="drawing" width="300"/>
+  </p>
+  <p align="center"> Figure 2: A simply supported beam subjected to a UDL loading </p>
+
+   **Support reactions:** considering the moment equilibrium condition at support $B$, 
+   $$R_{A1}L=\displaystyle\int_0^{L} w_1(\xi)(L-\xi)d\xi=\dfrac{a_0}{2}\displaystyle\int_0^{L} (L-\xi)d\xi=\dfrac{a_0L^2}{4} \quad\Rightarrow R_{A1}=\dfrac{a_0L}{4}\ (\uparrow)\quad .$$
+   Considering the equilibrium of vertical forces,
+   $$R_{A1}+R_{B1}=\dfrac{a_0L}{2}\quad \Rightarrow R_{B1}=\dfrac{a_0L}{4}\ (\uparrow)$$
+
+   **Bending moment:** 
+   $$M_{1x}=R_{A1}x-\displaystyle\int_0^{x} w_1(\xi)(x-\xi)d\xi=\dfrac{a_0Lx}{4}-\dfrac{a_0}{2}\displaystyle\int_0^{x} (x-\xi)d\xi=\dfrac{a_0Lx}{4}-\dfrac{a_0x^2}{4}\ (\mathrm{clockwise})$$
+
+   **Shear force:**
+   $$V_{1x}=\dfrac{dM_{1x}}{dx}=\dfrac{a_0L}{4}-\dfrac{a_0x}{2}\ (\uparrow)$$
+
+   **Deflection and slope profiles:**
   
   2. **Analysis of the beam when subjected to a harmonic loading of intensity $w_2(x)=\cos n\pi x/L$ per unit length:**
+   
+  <p align="center">
+    <img align="center" src="ssb_cos.png" alt="drawing" width="300"/>
+  </p>
+  <p align="center"> Figure 3: A simply supported beam subjected to a cosine loading </p>
   
   3. **Analysis of the beam when subjected to a harmonic loading of intensity $w_3(x)=\sin n\pi x/L$ per unit length:**
+   
+  <p align="center">
+    <img align="center" src="ssb_sin.png" alt="drawing" width="300"/>
+  </p>
+  <p align="center"> Figure 4: A simply supported beam subjected to a sine loading </p>
      
 ### **Theory of plates (double series solution by Navier's method):** 
