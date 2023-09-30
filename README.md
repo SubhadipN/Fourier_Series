@@ -10,7 +10,7 @@
   <!-- ![Figure1](ssb_general_load.png) -->
   <p align="center">
       <img align="center" src="ssb_general_load.png" alt="drawing" width="300"/>
-      <p style="text-align: center;"> <figcaption> habijabi </figcaption> </p>
   </p>
+   <p style="text-align: center;"> Habijabi </p>
 
 2. **Theory of plates (double series solution by Navier's method):**
