@@ -106,7 +106,7 @@
    $$y_3=\dfrac{1}{EI}\cdot\dfrac{L^4\sin\frac{n\pi x}{L}}{(n\pi)^4}\ (\downarrow)$$
    $$\dfrac{dy_3}{dx}=-\dfrac{1}{EI}\cdot\dfrac{L^3\cos\frac{n\pi x}{L}}{(n\pi)^3}\ (\mathrm{clockwise})$$
 
-### 4. Superposition of reaction forces and responses:
+### 4. Superposition of the reaction forces and the responses:
 <p align="justify"> The theory of superposition can be used to get the resultant reaction forces and responses of the simply supported beam due to any general loading $w(x)$. The behaviour of the beam must be within a linear range to make the theory of superposition to be applicable. The linear behaviour of the beam can be controlled by the $EI$ value for a particular prescribed loading $w(x)$. The expressions for the resultant reactions and other responses are given below. </p>
 
 **Total reactions:**
@@ -330,8 +330,8 @@ where
    Therefore, the final expression for the deformation profile can be expressed as
    $$\color{Greenyellow} w(x,y) = \dfrac{1}{\pi^4 D} \sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} \dfrac{p_{mn}}{\left[(m/a)^2+(n/b)^2\right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
    Since, $|\sin \frac{m\pi x}{a}| \leq 1$ and $|\sin \frac{n\pi y}{b}| \leq 1$ for every $x$ and $y$, the series in the the above equation is convergent. Finally, the bending moments of the plate can be expressed as
-   $$\color{Greenyellow} M_x = \dfrac{1}{\pi^2}\sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} p_{mn} \dfrac{\left[ (m/a)^2+\nu (n/b)^2 \right]}{\left[ (m/a)^2+(n/b)^2 \right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
-   $$\color{Greenyellow} M_y = \dfrac{1}{\pi^2} \sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} p_{mn} \dfrac{\left[ \nu (m/a)^2+(n/b)^2 \right]}{\left[ (m/a)^2+(n/b)^2 \right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
+   $$\color{Greenyellow} M_x = -D\left(\dfrac{\partial^2 w}{\partial x^2}+\nu\dfrac{\partial^2 w}{\partial y^2}\right) = \dfrac{1}{\pi^2}\sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} p_{mn} \dfrac{\left[ (m/a)^2+\nu (n/b)^2 \right]}{\left[ (m/a)^2+(n/b)^2 \right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
+   $$\color{Greenyellow} M_y = -D\left(\dfrac{\partial^2 w}{\partial y^2}+\nu\dfrac{\partial^2 w}{\partial x^2}\right) = \dfrac{1}{\pi^2} \sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} p_{mn} \dfrac{\left[ \nu (m/a)^2+(n/b)^2 \right]}{\left[ (m/a)^2+(n/b)^2 \right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
 </p>
 
 *Example:* <p align="justify"> A square plate of sides $a = 2\ \mathrm{m}$ and $b = 2\ \mathrm{m}$ is simply supported on all edges and subjected to a uniform pressure $p(x,y)=p_0=1.0\ \mathrm{MPa}$. Thickness of the plate is $50\ \mathrm{mm}$ and material properties are $E=2\times 10^5\ \mathrm{MPa}$, $\nu=0.30$. A simple MATLAB script to determine the deflected shape (see Figure 8) and the bending moment diagrams (see Figure 9) for the plate is provided below. </p>
