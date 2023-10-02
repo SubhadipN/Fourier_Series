@@ -1,3 +1,9 @@
+# **List of codes available in this repository:**
+1. <a href="https://github.com/SubhadipN/Fourier_Series/blob/main/simply_supported_beam_gen_loading.m">*simply_supported_beam_gen_loading.m*</a>
+2. <a href="https://github.com/SubhadipN/Fourier_Series/blob/main/simply_supported_plate_udp.m">*simply_supported_plate_udp.m*</a>
+
+The purposes and the basic working principles for the MATLAB scripts are discussed in the following sections.
+
 # Fourier Series
 
 <p align="justify"> According to <a href="https://en.wikipedia.org/wiki/Fourier_series#">Wikipedia</a>, a Fourier series is an expansion of a periodic function into a sum of trigonometric functions. The main advantage of expressing a function as a sum of sines and cosines is that the function becomes easier to analyze because trigonometric functions are well understood. The Fourier series is named after the French math wizard <a href="https://en.wikipedia.org/wiki/Joseph_Fourier">Jean-Baptiste Joseph Fourier</a>, who used the sum of the trigonometric series to find the solutions to the heat transfer problem (modelled as a partial differential equation). Since its first use, the Fourier series has become one of the most popular mathematical tools to be used in almost every field of engineering. Many problems of structural engineering can be solved in an easy manner by utilizing the advantage of the Fourier series. A few such applications (among many others) of the Fourier series are explained below. Working <a href="https://in.mathworks.com/?s_tid=gn_logo">MATLAB</a> codes are also provided here to apply the Fourier series directly in the case of solving the discussed problems. </p>
