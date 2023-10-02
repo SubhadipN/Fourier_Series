@@ -1,4 +1,4 @@
-# **List of computer scripts available in this repository:**
+# **List of computer scripts available in this repository**
 1. <a href="https://github.com/SubhadipN/Fourier_Series/blob/main/simply_supported_beam_gen_loading.m">*simply_supported_beam_gen_loading.m*</a>
 2. <a href="https://github.com/SubhadipN/Fourier_Series/blob/main/simply_supported_plate_udp.m">*simply_supported_plate_udp.m*</a>
 
