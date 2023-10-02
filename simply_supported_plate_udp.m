@@ -1,6 +1,8 @@
 %==================================================================================================
 % MATLAB script to determine approximate deflected shape and B.M.D of a simply supported plate at 
 % all edges (Navier's Method) due to uniformly distribute load
+% For further details, go to the link below:
+% https://github.com/SubhadipN/Fourier_Series/blob/main/README.md
 %==================================================================================================
 % PREPARED BY SUBHADIP NASKAR, RESEARCH SCHOLAR, IIT GUWAHATI
 %==================================================================================================
@@ -94,6 +96,4 @@ title('Bending moment diagram of simply supported plate','fontsize',18)
 xlabel('x (m)','fontsize',18); 
 ylabel('y (m)','fontsize',18); 
 zlabel('My (kN-m)','fontsize',18);
-%==================================================================================================
-% End of Script
 %==================================================================================================
