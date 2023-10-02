@@ -1,21 +1,12 @@
-# Table of Contents
-   1. [List of computer scripts available in this repository](#list-of-codes)
-   2. [Fourier series](#fourier-series)
-   3. [Analysis of a simply supported beam subjected to any arbitrary general loading](#ssb)
-   4. [Theory of plates (double series solution by Navier's method)](#ssp)
-
-<a name="list-of-codes"></a>
-## List of computer scripts available in this repository
+# List of computer scripts available in this repository
 1. <a href="https://github.com/SubhadipN/Fourier_Series/blob/main/simply_supported_beam_gen_loading.m">*simply_supported_beam_gen_loading.m*</a>
 2. <a href="https://github.com/SubhadipN/Fourier_Series/blob/main/simply_supported_plate_udp.m">*simply_supported_plate_udp.m*</a>
 
-<a name="fourier-series"></a>
-## Fourier Series
+# Fourier Series
 
 <p align="justify"> According to <a href="https://en.wikipedia.org/wiki/Fourier_series#">Wikipedia</a>, a Fourier series is an expansion of a periodic function into a sum of trigonometric functions. The main advantage of expressing a function as a sum of sines and cosines is that the function becomes easier to analyze because trigonometric functions are well understood. The Fourier series is named after the French math wizard <a href="https://en.wikipedia.org/wiki/Joseph_Fourier">Jean-Baptiste Joseph Fourier</a>, who used the sum of the trigonometric series to find the solutions to the heat transfer problem (modelled as a partial differential equation). Since its first use, the Fourier series has become one of the most popular mathematical tools to be used in almost every field of engineering. Many problems of structural engineering can be solved in an easy manner by utilizing the advantage of the Fourier series. A few such applications (among many others) of the Fourier series are explained below. Working <a href="https://in.mathworks.com/?s_tid=gn_logo">MATLAB</a> codes are also provided here to apply the Fourier series directly in the case of solving the discussed problems. </p>
 
-<a name="ssb"></a>
-### Analysis of a simply supported beam subjected to any arbitrary general loading
+## Analysis of a simply supported beam subjected to any arbitrary general loading
 <p align="justify"> Let a simply supported beam of length $L$ be subjected to any arbitrary general loading $w(x)$, as shown in Figure 1. The loading function $w(x)$ can be represented by the Fourier series of harmonic loading functions of periodicity equal to $2L$ as 
    $$w(x)=\dfrac{a_0}{2}+\sum\limits_{n=1}^{\infty} a_n\cos \dfrac{n\pi x}{L}+\sum\limits_{n=1}^{\infty} b_n\sin \dfrac{n\pi x}{L}$$ 
    where 
@@ -29,7 +20,7 @@
   </p>
   <p align="center"> Figure 1: A simply supported beam subjected to any general loading </p>
 
-#### 1. Analysis of the beam when subjected to a UDL: 
+### 1. Analysis of the beam when subjected to a UDL: 
    Consider a beam with a UDL of intensity $w_1(x)=a_0/2$ per unit length, as shown in Figure 2. 
   <p align="center">
     <img align="center" src="ssb_udl.png" alt="drawing" width="500"/>
@@ -55,7 +46,7 @@
    $$y_1=\dfrac{1}{EI}\left(\dfrac{a_0L^3x}{48}-\dfrac{a_0Lx^3}{24}+\dfrac{a_0x^4}{48}\right)\ (\downarrow)$$
    $$\dfrac{dy_1}{dx}=\dfrac{1}{EI}\left(\dfrac{-a_0L^3}{48}+\dfrac{a_0Lx^2}{8}-\dfrac{a_0x^3}{12}\right)\ (\mathrm{clockwise})$$ </p>
   
-#### 2. Analysis of the beam when subjected to a cosine harmonic loading:
+### 2. Analysis of the beam when subjected to a cosine harmonic loading:
    Consider a beam with a harmonic loading of intensity $w_2(x)=\cos\frac{n\pi x}{L}$ per unit length, as shown in Figure 3.
    
   <p align="center">
@@ -88,7 +79,7 @@
    $$y_2=\dfrac{1}{EI}\left\lbrace\dfrac{L^4(\cos\frac{n\pi x}{L}-1)}{(n\pi)^4}+\dfrac{L^3(1-\cos n\pi)x}{(n\pi)^4}-\dfrac{L^3(2+\cos n\pi)x}{6(n\pi)^2}+\dfrac{L^2x^2}{2(n\pi)^2}-\dfrac{L(1-\cos n\pi)x^3}{6(n\pi)^2}\right\rbrace\ (\downarrow)$$
    $$\dfrac{dy_2}{dx}=\dfrac{1}{EI}\left\lbrace\dfrac{L^3(\cos n\pi-1)}{(n\pi)^4}+\dfrac{L^3\sin\frac{n\pi x}{L}}{(n\pi)^3}+\dfrac{L^3(2+\cos n\pi)}{6(n\pi)^2}-\dfrac{L^2x}{(n\pi)^2}+\dfrac{L(1-\cos n\pi)x^2}{2(n\pi)^2}\right\rbrace\ (\mathrm{clockwise})$$
   
-#### 3. Analysis of the beam when subjected to a sine harmonic loading:
+### 3. Analysis of the beam when subjected to a sine harmonic loading:
    Consider a beam with a harmonic loading of intensity $w_3(x)=\sin\frac{n\pi x}{L}$ per unit length, as shown in Figure 4.
    
   <p align="center">
@@ -119,7 +110,7 @@
    $$y_3=\dfrac{1}{EI}\cdot\dfrac{L^4\sin\frac{n\pi x}{L}}{(n\pi)^4}\ (\downarrow)$$
    $$\dfrac{dy_3}{dx}=-\dfrac{1}{EI}\cdot\dfrac{L^3\cos\frac{n\pi x}{L}}{(n\pi)^3}\ (\mathrm{clockwise})$$
 
-#### 4. Superposition of the reaction forces and the responses:
+### 4. Superposition of the reaction forces and the responses:
 <p align="justify"> The theory of superposition can be used to get the resultant reaction forces and responses of the simply supported beam due to any general loading $w(x)$. The behaviour of the beam must be within a linear range to make the theory of superposition to be applicable. The linear behaviour of the beam can be controlled by the $EI$ value for a particular prescribed loading $w(x)$. The expressions for the resultant reactions and other responses are given below. </p>
 
 **Total reactions:**
@@ -152,8 +143,7 @@ $$\color{Greenyellow} \dfrac{dy}{dx}=\dfrac{dy_1}{dx}+\displaystyle\sum\limits_{
 </p>
 <p align="center"> Figure 6: Loading details for a simply supported beam and the corresponding responses </p>
 
-<a name="ssp"></a>
-### Theory of plates (double series solution by Navier's method) 
+## Theory of plates (double series solution by Navier's method) 
 <p align="justify"> Consider a rectangular plate of sides $a$ and $b$, simply supported on all edges and subjected to a uniform load $p(x,y)$ as shown in Figure 7. The plate has its origin in the upper left corner. </p>
    
   <p align="center">
