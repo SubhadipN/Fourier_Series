@@ -137,10 +137,11 @@ $$\color{Greenyellow} \dfrac{dy}{dx}=\dfrac{dy_1}{dx}+\displaystyle\sum\limits_{
   <p align="center"> Figure 5: Necessary details for an example simply supported beam </p>
 
 <p align="justify"> A simple <a href="https://github.com/SubhadipN/Fourier_Series/blob/main/simply_supported_beam_gen_loading.m">MATLAB script</a> is provided in this repository to find the approximate Fourier series expansion for the given loading acting at the example beam. Also, the script can be used to generate various responses (i.e., bending moment diagram, shear force diagram and deformation profile) of the beam using the theory discussed above. The variations of the responses with respect to the length of the beam are shown in Figure 6. It is assumed that the beam behaves linearly for the prescribed loadings. The inputs of the computer script can be modified accordingly to use it for other simply supported beams due to any general loading. The accuracy of the discussed methodology greatly depends on the smoothness of the function(s) representing the external loading(s) acting on the beam. Because the Fourier series expansion of a discontinuous function will always have some error in terms of overshoot (around $9\%$ of the size of the jump) near the location of discontinuity, which is commonly known as <a href="https://en.wikipedia.org/wiki/Gibbs_phenomenon">Gibb's phenomenon</a>. Therefore, the use of the Fourier series to get the linear response of a simply supported beam with highly discontinuous external loading (e.g., point load) should be avoided. </p>
-  <p align="center">
-    <img align="center" src="ssb_example.png" alt="drawing" width="1200"/>
-  </p>
-  <p align="center"> Figure 6: Loading details for a simply supported beam and the corresponding responses </p>
+  
+<p align="center">
+   <img align="center" src="ssb_example.png" alt="drawing" width="1200"/>
+</p>
+<p align="center"> Figure 6: Loading details for a simply supported beam and the corresponding responses </p>
   
 ## **Theory of plates (double series solution by Navier's method):** 
 <p align="justify"> Consider a rectangular plate of sides $a$ and $b$, simply supported on all edges and subjected to a uniform load $p(x,y)$ as shown in Figure 7. The plate has its origin in the upper left corner. </p>
@@ -163,7 +164,8 @@ where
    $$\color{Greenyellow} M_y = -D\left(\nu\dfrac{\partial^2 w}{\partial x^2}+\dfrac{\partial^2 w}{\partial y^2}\right) = \dfrac{1}{\pi^2} \sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} p_{mn} \dfrac{\left[ \nu (m/a)^2+(n/b)^2 \right]}{\left[ (m/a)^2+(n/b)^2 \right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
 </p>
 
-*Example:* <p align="justify"> A square plate of sides $a = 2\ \mathrm{m}$ and $b = 2\ \mathrm{m}$ is simply supported on all edges and subjected to a uniform pressure $p(x,y)=p_0=1.0\ \mathrm{MPa}$. Thickness of the plate is $50\ \mathrm{mm}$ and material properties are $E=2\times 10^5\ \mathrm{MPa}$, $\nu=0.30$. A simple <a href="https://github.com/SubhadipN/Fourier_Series/blob/main/simply_supported_plate_udp.m">MATLAB script</a> is provided in this repository to determine the deflected shape (see Figure 8), and the bending moment diagrams are shown in Figure 9. </p>
+*Example:* <p align="justify"> A square plate of sides $a = 2\ \mathrm{m}$ and $b = 2\ \mathrm{m}$ is simply supported on all edges and subjected to a uniform pressure $p(x,y)=p_0=1.0\ \mathrm{MPa}$. Thickness of the plate is $50\ \mathrm{mm}$ and material properties are $E=2\times 10^5\ \mathrm{MPa}$, $\nu=0.30$. The values of the coefficients $p_{mn}$ for the considered external loading can be obtained using the following expression as $$p_{mn} = \dfrac{4}{ab}\displaystyle\int\limits_0^a \int\limits_0^b p_0 \sin\frac{m\pi x}{a} \sin\frac{n\pi y}{b} dxdy = \dfrac{4p_0\left(1-\cos m\pi \right) \left(1-\cos n\pi \right)}{\pi^2 mn}$$ A simple <a href="https://github.com/SubhadipN/Fourier_Series/blob/main/simply_supported_plate_udp.m">MATLAB script</a> is provided in this repository to determine the deflected shape (see Figure 8), and the bending moment diagrams are shown in Figure 9. 
+</p>
 
   <p align="center">
     <img align="center" src="plate_deformation.png" alt="drawing" width="1500"/>
