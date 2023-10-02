@@ -22,6 +22,8 @@ gx = 1+b/sx; gy = 1+a/sy;           % Grid numbers in x and y direction
 [x,y] = meshgrid(0:sx:a,0:sy:b);
 %==================================================================================================
 % Determination of surface load coefficients (pmn)::
+% **NOTE: the formula for pmn must be modified accordingly if any other external loading than 
+% uniform pressure is acting on the simply supported plate.
 pmn = zeros(fn);
 for m = 1:fn
     for n = 1:fn 
