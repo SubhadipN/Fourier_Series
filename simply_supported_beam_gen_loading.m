@@ -2,6 +2,8 @@
 % MATLAB script file to find the approximate Fourier series expansion for any given loading 
 % acting at a simply supported beam of length L, and also the B.M.D., S.F.D. and deformed 
 % shape of the beam due to the loading represented by the Fourier series.
+% For further details, go to the link below:
+% https://github.com/SubhadipN/Fourier_Series/blob/main/README.md
 %=============================================================================================
 % Prepared by SUBHADIP NASKAR, RESEARCH SCHOLAR, IIT GUWAHATI
 %=============================================================================================
@@ -13,11 +15,9 @@ L = 5;
 % Modulus of rigidity of the beam (kN-m^2)::
 EI = 11250;
 % Position of Load Function::
-LP = [0 0.4; 0.5 1.0]*L;  
-% LP = [0 0.4; 0.4 0.6; 0.6 1.0]*L;  
+LP = [0 0.4; 0.5 1.0]*L;   
 % Intensity of Load Function (kN/m)::
 LI = [20 20; 10 40];
-% LI = [0 20; 20 20; 20 0];
 % Number of terms in Fourier series::
 n = 50;                         
 %=============================================================================================
@@ -173,6 +173,4 @@ plot(ll,1000*disp,'g','LineWidth',2);
 xlabel('Length of beam (m)'); 
 ylabel('Deflection (mm)');
 title('Deformed Shape of the Beam');
-%=============================================================================================
-% END OF SCRIPT
 %=============================================================================================
