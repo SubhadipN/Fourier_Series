@@ -164,16 +164,15 @@ where
    $$\color{Greenyellow} M_y = -D\left(\nu\dfrac{\partial^2 w}{\partial x^2}+\dfrac{\partial^2 w}{\partial y^2}\right) = \dfrac{1}{\pi^2} \sum\limits_{m=1}^{\infty} \sum\limits_{n=1}^{\infty} p_{mn} \dfrac{\left[ \nu (m/a)^2+(n/b)^2 \right]}{\left[ (m/a)^2+(n/b)^2 \right]^2}\ \sin\frac{m\pi x}{a}\ \sin\frac{n\pi y}{b}$$
 </p>
 
-*Example:* <p align="justify"> A square plate of sides $a = 2\ \mathrm{m}$ and $b = 2\ \mathrm{m}$ is simply supported on all edges and subjected to a uniform pressure $p(x,y)=p_0=1.0\ \mathrm{MPa}$. Thickness of the plate is $50\ \mathrm{mm}$ and material properties are $E=2\times 10^5\ \mathrm{MPa}$, $\nu=0.30$. The values of the coefficients $p_{mn}$ for the considered external loading can be obtained using the following expression as $$p_{mn} = \dfrac{4}{ab}\displaystyle\int\limits_0^a \int\limits_0^b p_0 \sin\frac{m\pi x}{a} \sin\frac{n\pi y}{b} dxdy = \dfrac{4p_0\left(1-\cos m\pi \right) \left(1-\cos n\pi \right)}{\pi^2 mn}$$ A simple <a href="https://github.com/SubhadipN/Fourier_Series/blob/main/simply_supported_plate_udp.m">MATLAB script</a> is provided in this repository to determine the deflected shape (see Figure 8), and the bending moment diagrams are shown in Figure 9. 
+*Example:* <p align="justify"> A square plate of sides $a = 2\ \mathrm{m}$ and $b = 2\ \mathrm{m}$ is simply supported on all edges and subjected to a uniform pressure $p(x,y)=p_0=1.0\ \mathrm{MPa}$. Thickness of the plate is $50\ \mathrm{mm}$ and material properties are $E=2\times 10^5\ \mathrm{MPa}$, $\nu=0.30$. The values of the coefficients $p_{mn}$ for the considered external loading can be obtained using the following expression as $$p_{mn} = \dfrac{4}{ab}\displaystyle\int\limits_0^a \int\limits_0^b p_0 \sin\frac{m\pi x}{a} \sin\frac{n\pi y}{b} dxdy = \dfrac{4p_0\left(1-\cos m\pi \right) \left(1-\cos n\pi \right)}{\pi^2 mn}\quad .$$ A simple <a href="https://github.com/SubhadipN/Fourier_Series/blob/main/simply_supported_plate_udp.m">MATLAB script</a> is provided in this repository to determine the deflected shape (see Figure 8), and the bending moment diagrams for the plate. The outputs of the script are shown in Figure 9. 
 </p>
 
-  <p align="center">
-    <img align="center" src="plate_deformation.png" alt="drawing" width="1500"/>
-  </p>
-  <p align="center"> Figure 8: Deformed shape of the example simply supported plate subjected to the given pressure </p>
+<p align="center">
+   <img align="center" src="plate_deformation.png" alt="drawing" width="1500"/>
+</p>
+<p align="center"> Figure 8: Deformed shape of the example simply supported plate subjected to the given pressure </p>
 
-  <p align="center">
-    <img align="center" src="plate_BMDs.png" alt="drawing" width="1500"/>
-  </p>
-  <p align="center"> Figure 9: Bending moment diagrams of the example simply supported plate subjected to the given
-pressure </p>
+<p align="center">
+   <img align="center" src="plate_BMDs.png" alt="drawing" width="1500"/>
+</p>
+<p align="center"> Figure 9: Bending moment diagrams of the example simply supported plate subjected to the given pressure </p>
