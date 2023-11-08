@@ -115,7 +115,7 @@
 
 **Total reactions:**
 $$R_A=R_{A1}+\displaystyle\sum\limits_{n=1}^{\infty}a_nR_{A2}+\sum\limits_{n=1}^{\infty}b_nR_{A3}=\dfrac{a_0L}{4}+\sum\limits_{n=1}^{\infty}\dfrac{a_nL(1-\cos n\pi)}{(n\pi)^2}+\sum\limits_{n=1}^{\infty}\dfrac{b_nL}{n\pi}\ (\uparrow)$$
-$$\color{Greenyellow} R_B=R_{B1}+\displaystyle\sum\limits_{n=1}^{\infty}a_nR_{B2}+\sum\limits_{n=1}^{\infty}b_nR_{B3}=\dfrac{a_0L}{4}-\sum\limits_{n=1}^{\infty}\dfrac{a_nL(1-\cos n\pi)}{(n\pi)^2}-\sum\limits_{n=1}^{\infty}\dfrac{b_nL\cos n\pi}{n\pi}\ (\uparrow)$$
+$$R_B=R_{B1}+\displaystyle\sum\limits_{n=1}^{\infty}a_nR_{B2}+\sum\limits_{n=1}^{\infty}b_nR_{B3}=\dfrac{a_0L}{4}-\sum\limits_{n=1}^{\infty}\dfrac{a_nL(1-\cos n\pi)}{(n\pi)^2}-\sum\limits_{n=1}^{\infty}\dfrac{b_nL\cos n\pi}{n\pi}\ (\uparrow)$$
 
 **Total bending moment:**
 $$M_x=M_{1x}+\displaystyle\sum\limits_{n=1}^{\infty}a_nM_{2x}+\sum\limits_{n=1}^{\infty}b_nM_{3x}=\dfrac{a_0Lx}{4}-\dfrac{a_0x^2}{4}+\left(\dfrac{L}{n\pi}\right)^2\displaystyle\sum\limits_{n=1}^{\infty}\left\lbrace a_n\left(\cos\dfrac{n\pi x}{L}-1\right)+b_n \sin \dfrac{n\pi x}{L}\right\rbrace+\dfrac{Lx}{(n\pi)^2}\sum\limits_{n=1}^{\infty}a_n(1-\cos n\pi)\ (\mathrm{clockwise})$$
